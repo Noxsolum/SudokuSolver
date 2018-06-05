@@ -17,7 +17,10 @@ public:
 
 	void checkBox();
 
-	void placeNum();
+	void getPlace();
+
+	void checkPlace(int row, int col, int numTF);
+
 
 private:
 	const int arraySize = 9;

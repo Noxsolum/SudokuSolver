@@ -113,7 +113,7 @@ void GetSudoku::checkBox()
 	}
 }
 
-void GetSudoku::placeNum()
+void GetSudoku::getPlace()
 {
 	// check if a space is free
 	// if not then next square
@@ -123,24 +123,40 @@ void GetSudoku::placeNum()
 	{
 		for (int y = 0; y < 3; y++)
 		{
-			cout << sudokuArray[x][y] << endl;
+			cout << x << ", " << y << ": " << sudokuArray[x][y] << endl;
 			if (sudokuArray[x][y] == 0)
 			{
 				cout << "Second Part" << endl;
-				for (int w = 0; w < 9; w++)
-				{
-					for (int z = 0; z < 9; z++)
-					{
-						if (sudokuArray[row][w] == boxOneArray[0][0] && sudokuArray[z][row] == boxOneArray[0][0])
-						{
-							cout << "Free to put it here" << endl;
-						}
-					}
-				}
+				checkPlace(x, y, boxOneArray[0][0]);
+				//for (int w = 0; w < 9; w++)
+				//{
+				//	for (int z = 0; z < 9; z++)
+				//	{
+				//		if (sudokuArray[row][w] == boxOneArray[0][0] && sudokuArray[z][row] == boxOneArray[0][0])
+				//		{
+				//			cout << "Free to put it here" << endl;
+				//		}
+				//	}
+				//}
 			}
-			else
-				break;
 		}
 	}
 
+}
+
+void GetSudoku::checkPlace(int row, int col, int numTF)
+{
+	for (int x = 0; x < 9; x++)
+	{
+		if (sudokuArray[row][x] == numTF)
+		{
+			cout << "Checked " << row << ", " << x << endl;
+			cout << "There is a one" << endl;
+		}
+		if (sudokuArray[x][col] == numTF)
+		{
+			cout << "Checked " << x << ", " << col << endl;
+			cout << "There is a one" << endl;
+		}
+	}
 }

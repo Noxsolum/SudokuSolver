@@ -17,7 +17,7 @@ int main()
 	GetSudoku sudokuObj;
 	sudokuObj.printSudoku();
 	sudokuObj.checkBox();
-	sudokuObj.placeNum();
+	sudokuObj.getPlace();
 	system("pause");
 	return 0;
 }
